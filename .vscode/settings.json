@@ -1,0 +1,19 @@
+{
+    "latex-workshop.latex.autoBuild.run": "onSave",
+    "latex-workshop.latex.outDir": "%DIR%",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "latex-workshop.synctex.afterBuild.enabled": true,
+    "files.associations": {
+        "*.tex": "latex"
+    },
+    "files.exclude": {
+        "**/*.aux": true,
+        "**/*.fdb_latexmk": true,
+        "**/*.fls": true,
+        "**/*.log": true,
+        "**/*.synctex.gz": true,
+        "**/*.out": true,
+        "**/*.toc": true
+    },
+    "editor.wordWrap": "on"
+}

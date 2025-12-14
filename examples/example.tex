@@ -1,0 +1,191 @@
+\documentclass[12pt,a4paper]{article}
+
+% 中文支持
+\usepackage{ctex}
+
+% 数学公式
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+% 图片支持
+\usepackage{graphicx}
+
+% 表格支持
+\usepackage{booktabs}
+\usepackage{array}
+
+% 页面设置
+\usepackage{geometry}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+% 超链接
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+% 代码高亮（可选）
+\usepackage{listings}
+\lstset{
+    basicstyle=\ttfamily,
+    breaklines=true,
+    frame=single
+}
+
+% 标题信息
+\title{\textbf{中文学术论文示例模板}}
+\author{作者姓名}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+这是一篇使用 \LaTeX 编写的中文学术论文示例。本文展示了如何使用 \LaTeX 排版中文文档，包括数学公式、图片、表格等常用元素。本模板适用于中文学术论文写作，提供了基本的排版框架和常用功能。
+\end{abstract}
+
+\section{引言}
+
+\LaTeX 是一个高质量的文档排版系统，特别适合用于学术论文、技术文档等专业文档的编写。使用 \texttt{ctex} 宏包，我们可以方便地编写中文文档。
+
+本文档演示了以下功能：
+\begin{itemize}
+    \item 中文排版
+    \item 数学公式
+    \item 图片插入
+    \item 表格制作
+    \item 代码展示
+\end{itemize}
+
+\section{数学公式}
+
+\subsection{行内公式}
+
+在文本中可以插入行内公式，例如 $E = mc^2$ 是爱因斯坦的质能方程，$a^2 + b^2 = c^2$ 是勾股定理。
+
+\subsection{行间公式}
+
+复杂的公式可以单独成行展示：
+
+\begin{equation}
+    \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+
+多行公式可以使用 \texttt{align} 环境：
+
+\begin{align}
+    f(x) &= x^2 + 2x + 1 \\
+         &= (x + 1)^2
+\end{align}
+
+矩阵表示：
+
+\begin{equation}
+    A = \begin{pmatrix}
+        a_{11} & a_{12} & a_{13} \\
+        a_{21} & a_{22} & a_{23} \\
+        a_{31} & a_{32} & a_{33}
+    \end{pmatrix}
+\end{equation}
+
+\section{图片}
+
+图片是论文中的重要元素。下面展示如何插入图片：
+
+\begin{figure}[htbp]
+    \centering
+    % 取消注释以下行以插入实际图片
+    % \includegraphics[width=0.6\textwidth]{images/example.png}
+    
+    % 占位符：如果没有图片，可以使用空白框
+    \fbox{\parbox{0.6\textwidth}{\centering \vspace{3cm} 在此插入图片 \\ \texttt{images/example.png} \vspace{3cm}}}
+    
+    \caption{图片示例}
+    \label{fig:example}
+\end{figure}
+
+在文中可以引用图片，如图~\ref{fig:example}~所示。
+
+\section{表格}
+
+表格是展示数据的有效方式。使用 \texttt{booktabs} 宏包可以制作专业的三线表：
+
+\begin{table}[htbp]
+    \centering
+    \caption{实验数据示例}
+    \label{tab:example}
+    \begin{tabular}{lccr}
+        \toprule
+        \textbf{项目} & \textbf{数值1} & \textbf{数值2} & \textbf{结果} \\
+        \midrule
+        实验A & 12.3 & 45.6 & 57.9 \\
+        实验B & 23.4 & 56.7 & 80.1 \\
+        实验C & 34.5 & 67.8 & 102.3 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+表~\ref{tab:example}~展示了实验数据的整理方式。
+
+\section{代码展示}
+
+如果需要在论文中展示代码，可以使用 \texttt{listings} 宏包：
+
+\begin{lstlisting}[language=Python, caption=Python代码示例]
+def hello_world():
+    print("Hello, World!")
+    return True
+
+if __name__ == "__main__":
+    hello_world()
+\end{lstlisting}
+
+\section{定理和证明}
+
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{definition}{定义}
+
+\begin{definition}
+连续函数：设函数 $f(x)$ 在点 $x_0$ 的某个邻域内有定义，如果 $\lim_{x \to x_0} f(x) = f(x_0)$，则称 $f(x)$ 在点 $x_0$ 处连续。
+\end{definition}
+
+\begin{theorem}
+设 $f(x)$ 和 $g(x)$ 在点 $x_0$ 处连续，则 $f(x) + g(x)$ 和 $f(x) \cdot g(x)$ 在点 $x_0$ 处也连续。
+\end{theorem}
+
+\begin{proof}
+根据连续函数的定义和极限的运算法则可以直接证明。
+\end{proof}
+
+\section{结论}
+
+本文展示了使用 \LaTeX 编写中文学术论文的基本方法，包括文字排版、数学公式、图片、表格等常用元素。使用本模板，研究者可以专注于内容创作，而不必过多担心排版问题。
+
+\LaTeX 的优势在于：
+\begin{enumerate}
+    \item 专业的排版效果
+    \item 强大的数学公式支持
+    \item 自动化的交叉引用
+    \item 便于版本控制
+\end{enumerate}
+
+\section*{致谢}
+
+感谢开源社区对 \LaTeX 和相关工具的贡献。
+
+% 参考文献（可选）
+\begin{thebibliography}{99}
+\bibitem{latex}
+Lamport, Leslie. \textit{\LaTeX: A Document Preparation System}. Addison-Wesley, 1994.
+
+\bibitem{ctex}
+CTeX 开发组. \textit{CTeX 宏集手册}. 2021.
+\end{thebibliography}
+
+\end{document}

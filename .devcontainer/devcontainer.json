@@ -1,0 +1,64 @@
+{
+  "name": "LaTeX 中文学术论文编译环境",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop"
+      ],
+      "settings": {
+        "latex-workshop.latex.tools": [
+          {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "%DOC%"
+            ]
+          },
+          {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+              "-synctex=1",
+              "-interaction=nonstopmode",
+              "-file-line-error",
+              "%DOC%"
+            ]
+          }
+        ],
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "XeLaTeX",
+            "tools": [
+              "xelatex"
+            ]
+          },
+          {
+            "name": "XeLaTeX (两次)",
+            "tools": [
+              "xelatex",
+              "xelatex"
+            ]
+          },
+          {
+            "name": "PDFLaTeX",
+            "tools": [
+              "pdflatex"
+            ]
+          }
+        ],
+        "latex-workshop.view.pdf.viewer": "tab",
+        "files.autoSave": "afterDelay"
+      }
+    }
+  },
+  "forwardPorts": [],
+  "postCreateCommand": "echo 'LaTeX 环境已就绪！使用 compile-latex <文件名.tex> 或 LaTeX Workshop 扩展来编译文档。'",
+  "remoteUser": "root"
+}
