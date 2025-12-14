@@ -28,7 +28,7 @@ jobs:
     - name: Compile example.tex
       uses: xu-cheng/latex-action@v3
       with:
-        root_file: examples/example.tex
+        root_file: example.tex
         working_directory: examples
         compiler: xelatex
         args: -interaction=nonstopmode -file-line-error
