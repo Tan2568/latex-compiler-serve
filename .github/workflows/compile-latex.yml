@@ -1,0 +1,43 @@
+name: Compile LaTeX Documents
+
+# 可选的 GitHub Actions 工作流
+# 自动编译 LaTeX 文档并生成 PDF
+
+on:
+  push:
+    paths:
+      - '**.tex'
+      - 'examples/**'
+  pull_request:
+    paths:
+      - '**.tex'
+      - 'examples/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Compile example.tex
+      uses: xu-cheng/latex-action@v3
+      with:
+        root_file: examples/example.tex
+        working_directory: examples
+        compiler: xelatex
+        args: -interaction=nonstopmode -file-line-error
+    
+    - name: Upload PDF
+      uses: actions/upload-artifact@v4
+      with:
+        name: example-pdf
+        path: examples/example.pdf
+        if-no-files-found: error
+    
+    - name: Display success message
+      run: |
+        echo "✅ PDF 编译成功！"
+        echo "📄 可在 Artifacts 中下载生成的 PDF"
